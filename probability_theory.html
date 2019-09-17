@@ -759,7 +759,7 @@ pnorm(1.337)</code></pre>
 Key Concept 4
 </h3>
 <h3 class="left">
-Probabilities of Normal Random Variables
+Normal Random Variables
 </h3>
 <p>
 Suppose <span class="math inline">\(Y\)</span> is normally distributed with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>: <span class="math display">\[Y
@@ -778,9 +778,9 @@ P(c_1 \leq Y \leq c_2) =&amp; \, P(d_1 \leq Z \leq d_2) = \Phi(d_2) - \Phi(d_1).
 \begin{split}
 g_{X,Y}(x,y) =&amp; \, \frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho_{XY}^2}} \\ 
 \cdot &amp; \, \exp \left\{ \frac{1}{-2(1-\rho_{XY}^2)} \left[ \left( \frac{x-\mu_x}{\sigma_X} \right)^2 - 2\rho_{XY}\left( \frac{x-\mu_X}{\sigma_X} \right)\left( \frac{y-\mu_Y}{\sigma_Y} \right) + \left( \frac{y-\mu_Y}{\sigma_Y} \right)^2 \right]  \right\}.
-\end{split} (\#eq:bivnorm)
+\end{split}
 \end{align}\]</span></p>
-<p>Equation @ref(eq:bivnorm) contains the bivariate normal PDF. It is somewhat hard to gain insights from this complicated expression. Instead, let us consider the special case where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are uncorrelated standard normal random variables with densities <span class="math inline">\(f_X(x)\)</span> and <span class="math inline">\(f_Y(y)\)</span> with joint normal distribution. We then have the parameters <span class="math inline">\(\sigma_X = \sigma_Y = 1\)</span>, <span class="math inline">\(\mu_X=\mu_Y=0\)</span> (due to marginal standard normality) and <span class="math inline">\(\rho_{XY}=0\)</span> (due to independence). The joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> then becomes</p>
+<p>The equation above contains the bivariate normal PDF. It is somewhat hard to gain insights from this complicated expression. Instead, let us consider the special case where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are uncorrelated standard normal random variables with densities <span class="math inline">\(f_X(x)\)</span> and <span class="math inline">\(f_Y(y)\)</span> with joint normal distribution. We then have the parameters <span class="math inline">\(\sigma_X = \sigma_Y = 1\)</span>, <span class="math inline">\(\mu_X=\mu_Y=0\)</span> (due to marginal standard normality) and <span class="math inline">\(\rho_{XY}=0\)</span> (due to independence). The joint density of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> then becomes</p>
 <p><span class="math display">\[ g_{X,Y}(x,y) = f_X(x) f_Y(y) = \frac{1}{2\pi} \cdot \exp \left\{ -\frac{1}{2} \left[x^2 + y^2 \right]  \right\}, \tag{2.2}  \]</span></p>
 <p>the PDF of the bivariate standard normal distribution. The widget below provides an interactive three-dimensional plot of (<a href="#mjx-eqn-2.2">2.2</a>).</p>
 <center>
