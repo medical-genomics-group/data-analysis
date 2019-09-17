@@ -374,7 +374,7 @@ div.tocify {
 <p>In what follows here, our focus is on some of the probability distribution and relevant functions required to solve simple problems. We will start by re-freshing some core concepts of probability theory. You will learn how to draw random numbers, how to compute densities, probabilities, quantiles and the like. We will see how a few distributions are extremely useful as they underlie the majority of statistical testing conducted in biology.</p>
 <p>Most of the statistical functionalities in <tt>R</tt>’s standard version are collected in the <tt>stats</tt> package. It provides simple functions which compute descriptive measures and facilitate computations involving a variety of probability distributions. It also contains more sophisticated routines that, e.g., enable the user to estimate a large number of models based on the same data or help to conduct extensive simulation studies. <tt>stats</tt> is part of the base distribution of <tt>R</tt>, meaning that it is installed by default so there is no need to run <code>install.packages(&quot;stats&quot;)</code> or <code>library(&quot;stats&quot;)</code>. Simply execute <code>library(help = &quot;stats&quot;)</code> in the console to view the documentation and a complete list of all functions gathered in <tt>stats</tt>. For most packages a documentation that can be viewed within <em>RStudio</em> is available. Documentations can be invoked using the <tt>?</tt> operator, e.g., upon execution of <code>?stats</code> the documentation of the <tt>stats</tt> package is shown in the help tab of the bottom-right pane.</p>
 <div id="random-variables-and-probability-distributions" class="section level2">
-<h2><span class="header-section-number">1.1</span> Random Variables and Probability Distributions</h2>
+<h2><span class="header-section-number">1.1</span> Random Variables</h2>
 <p>Let us briefly review some basic concepts of probability theory.</p>
 <ul>
 <li>The mutually exclusive results of a random process are called the <em>outcomes</em>. ‘Mutually exclusive’ means that only one of the possible outcomes can be observed.</li>
@@ -388,96 +388,84 @@ div.tocify {
 <li>A continuous random variable may take on a continuum of possible values.</li>
 </ul>
 <div id="probability-distributions-of-discrete-random-variables" class="section level3 unnumbered">
-<h3>Probability Distributions of Discrete Random Variables</h3>
+<h3>Discrete Random Variables</h3>
 <p>A typical example for a discrete random variable <span class="math inline">\(D\)</span> is the result of a dice roll: in terms of a random experiment this is nothing but randomly selecting a sample of size <span class="math inline">\(1\)</span> from a set of numbers which are mutually exclusive outcomes. Here, the sample space is <span class="math inline">\(\{1,2,3,4,5,6\}\)</span> and we can think of many different events, e.g., ‘the observed outcome lies between <span class="math inline">\(2\)</span> and <span class="math inline">\(5\)</span>’.</p>
 <p>A basic function to draw random samples from a specified set of elements is the the function <tt>sample()</tt>, see <code>?sample</code>. We can use it to simulate the random outcome of a dice roll. Let’s roll the dice!</p>
 <pre class="r"><code>sample(1:6, 1) </code></pre>
 <pre><code>## [1] 5</code></pre>
 <p>The probability distribution of a discrete random variable is the list of all possible values of the variable and their probabilities which sum to <span class="math inline">\(1\)</span>. The cumulative probability distribution function gives the probability that the random variable is less than or equal to a particular value.</p>
 <p>For the dice roll, the probability distribution and the cumulative probability distribution are summarized in Table <a href="tab:pdist">1</a>.</p>
-<style>
-  table.bottomBorder { 
-    border-collapse: collapse; 
-  }
-  table.bottomBorder td, 
-  table.bottomBorder th { 
-    border-bottom: 1px solid yellowgreen; 
-    padding: 10px; 
-    text-align: left;
-  }
-</style>
-
-<table class="bottomBorder">
+<table>
 <caption>
 <span id="tab:pdist">Table 1: </span>PDF and CDF of a Dice Roll
 </caption>
 <tbody>
 <tr>
-<td>
+<td style="text-align:left;padding:10px;">
 Outcome
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 2
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 3
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 4
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 5
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 6
 </td>
 </tr>
 <tr>
-<td>
+<td style="text-align:left;padding:10px;">
 Probability
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
 </tr>
 <tr>
-<td>
+<td style="text-align:left;padding:10px;">
 Cumulative Probability
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 2/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 3/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 4/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 5/6
 </td>
-<td>
+<td style="text-align:left;padding:10px;">
 1
 </td>
 </tr>
