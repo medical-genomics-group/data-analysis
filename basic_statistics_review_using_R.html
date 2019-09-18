@@ -513,15 +513,15 @@ legend(&quot;topleft&quot;,
 <li><p>Both sampling distributions of <span class="math inline">\(\overline{Y}\)</span> show less dispersion than the sampling distribution of <span class="math inline">\(Y_1\)</span>. This means that <span class="math inline">\(\overline{Y}\)</span> has a lower variance than <span class="math inline">\(Y_1\)</span>. In view of Key Concept 9, we find that <span class="math inline">\(\overline{Y}\)</span> is a more efficient estimator than <span class="math inline">\(Y_1\)</span>. In fact, this holds for all <span class="math inline">\(n&gt;1\)</span>.</p></li>
 <li><p><span class="math inline">\(\overline{Y}\)</span> shows a behavior illustrating consistency (see Key Concept 9). The blue and the red densities are much more concentrated around <span class="math inline">\(\mu=10\)</span> than the green one. As the number of observations is increased from <span class="math inline">\(1\)</span> to <span class="math inline">\(5\)</span>, the sampling distribution tightens around the true parameter. Increasing the sample size to <span class="math inline">\(25\)</span>, this effect becomes more apparent. This implies that the probability of obtaining estimates that are close to the true value increases with <span class="math inline">\(n\)</span>.</p></li>
 </ul>
-<p>We encourage you to go ahead and modify the code. Try out different values for the sample size and see how the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> changes!</p>
+<p>Try out different values for the sample size and see how the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> changes!</p>
 <div id="overliney-is-the-least-squares-estimator-of-mu_y" class="section level4 unnumbered">
 <h4><span class="math inline">\(\overline{Y}\)</span> is the Least Squares Estimator of <span class="math inline">\(\mu_Y\)</span></h4>
 <p>Assume you have some observations <span class="math inline">\(Y_1,\dots,Y_n\)</span> on <span class="math inline">\(Y \sim \mathcal{N}(10,1)\)</span> (which is unknown) and would like to find an estimator <span class="math inline">\(m\)</span> that predicts the observations as well as possible. By good we mean to choose <span class="math inline">\(m\)</span> such that the total squared deviation between the predicted value and the observed values is small. Mathematically, this means we want to find an <span class="math inline">\(m\)</span> that minimizes</p>
 <p><span class="math display">\[\begin{equation}
-  \sum_{i=1}^n (Y_i - m)^2. (\#eq:sqm)
+  \sum_{i=1}^n (Y_i - m)^2. 
 \end{equation}\]</span></p>
 <p>Think of <span class="math inline">\(Y_i - m\)</span> as the mistake made when predicting <span class="math inline">\(Y_i\)</span> by <span class="math inline">\(m\)</span>. We could also minimize the sum of absolute deviations from <span class="math inline">\(m\)</span> but minimizing the sum of squared deviations is mathematically more convenient (and will lead to a different result). That is why the estimator we are looking for is called the <em>least squares estimator</em>. <span class="math inline">\(m = \overline{Y}\)</span>, the sample mean, is this estimator.</p>
-<p>We can show this by generating a random sample and plotting @ref(eq:sqm) as a function of <span class="math inline">\(m\)</span>.</p>
+<p>We can show this by generating a random sample and plotting the above equation as a function of <span class="math inline">\(m\)</span>.</p>
 <pre class="r"><code># define the function and vectorize it
 sqm &lt;- function(m) {
  sum((y-m)^2)
@@ -548,16 +548,16 @@ text(x = mean(y),
      labels = paste(round(mean(y), 2)))</code></pre>
 <p><img src="basic_statistics_review_using_R_files/figure-html/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<p>Notice that @ref(eq:sqm) is a quadratic function so that there is only one minimum. The plot shows that this minimum lies exactly at the sample mean of the sample data.</p>
-
-<div class="rmdknit">
+<p>Notice that the equation above is a quadratic function so that there is only one minimum. The plot shows that this minimum lies exactly at the sample mean of the sample data.</p>
+<ul>
 <p>Some <tt>R</tt> functions can only interact with functions that take a vector as an input and evaluate the function body on every entry of the vector, for example <tt>curve()</tt>. We call such functions vectorized functions and it is often a good idea to write vectorized functions yourself, although this is cumbersome in some cases. Having a vectorized function in <tt>R</tt> is never a drawback since these functions work on both single values and vectors.<br />
-Let us look at the function <tt>sqm()</tt>, which is non-vectorized: <tt> sqm &lt;- function(m) {<br />
+  Let us look at the function <tt>sqm()</tt>, which is non-vectorized:</p>
+<p><tt> sqm &lt;- function(m) {<br />
      sum((y-m)^2) #body of the function<br />
 } </tt></p>
-Providing, e.g., <tt>c(1,2,3)</tt> as the argument <tt>m</tt> would cause an error since then the operation <tt>y-m</tt> is invalid: the vectors <tt>y</tt> and <tt>m</tt> are of incompatible dimensions. This is why we cannot use <tt>sqm()</tt> in conjunction with <tt>curve()</tt>. Here <tt>Vectorize()</tt> comes into play. It generates a vectorized version of a non-vectorized function.
-</div>
-
+<p>Providing, e.g., <tt>c(1,2,3)</tt> as the argument <tt>m</tt> would cause an error since then the operation <tt>y-m</tt> is invalid: the vectors <tt>y</tt> and <tt>m</tt> are of incompatible dimensions. This is why we cannot use <tt>sqm()</tt> in conjunction with <tt>curve()</tt>.</p> 
+<p>Here <tt>Vectorize()</tt> comes into play. It generates a vectorized version of a non-vectorized function.</p>
+</ul>
 </div>
 <div id="why-random-sampling-is-important" class="section level4 unnumbered">
 <h4>Why Random Sampling is Important</h4>
@@ -602,10 +602,10 @@ legend(&quot;topleft&quot;,
 </div>
 </div>
 <div id="hypothesis-tests-concerning-the-population-mean" class="section level2">
-<h2><span class="header-section-number">1.3</span> Hypothesis Tests Concerning the Population Mean</h2>
+<h2><span class="header-section-number">1.3</span> Hypothesis Tests of the Population Mean</h2>
 <p>In this section we briefly review concepts in hypothesis testing and discuss how to conduct hypothesis tests in <tt>R</tt>. We focus on drawing inferences about an unknown population mean.</p>
 <div id="about-hypotheses-and-hypothesis-testing" class="section level4 unnumbered">
-<h4>About Hypotheses and Hypothesis Testing</h4>
+<h4>Hypotheses and Hypothesis Testing</h4>
 <p>In a significance test, we want to exploit the information contained in a sample as evidence in favor or against a hypothesis. Essentially, hypotheses are simple questions that can be answered by ‘yes’ or ‘no’. In a hypothesis test we typically deal with two different hypotheses:</p>
 <ul>
 <li><p>The <em>null hypothesis</em>, denoted <span class="math inline">\(H_0\)</span>, is the hypothesis we are interested in testing.</p></li>
@@ -623,25 +623,25 @@ legend(&quot;topleft&quot;,
 <p>Assume that the null hypothesis is <em>true</em>. The <span class="math inline">\(p\)</span>-value is the probability of drawing data and observing a corresponding test statistic that is at least as adverse to what is stated under the null hypothesis as the test statistic actually computed using the sample data.</p>
 <p>In the context of the population mean and the sample mean, this definition can be stated mathematically in the following way:</p>
 <p><span class="math display">\[\begin{equation}
-p \text{-value} = P_{H_0}\left[ \lvert \overline{Y} - \mu_{Y,0} \rvert &gt; \lvert \overline{Y}^{act} - \mu_{Y,0} \rvert \right] (\#eq:pvalue)
+p \text{-value} = P_{H_0}\left[ \lvert \overline{Y} - \mu_{Y,0} \rvert &gt; \lvert \overline{Y}^{act} - \mu_{Y,0} \rvert \right]
 \end{equation}\]</span></p>
-<p>In @ref(eq:pvalue), <span class="math inline">\(\overline{Y}^{act}\)</span> is the mean of the sample actually computed. Consequently, in order to compute the <span class="math inline">\(p\)</span>-value as in @ref(eq:pvalue), knowledge about the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> when the null hypothesis is true is required. However in most cases the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> is unknown. Fortunately, as stated by the CLT (see Key Concept 7), the large-sample approximation <span class="math display">\[ \overline{Y} \approx \mathcal{N}(\mu_{Y,0}, \, \sigma^2_{\overline{Y}}) \ \ , \ \ \sigma^2_{\overline{Y}} = \frac{\sigma_Y^2}{n} \]</span></p>
+<p>In the equation above, <span class="math inline">\(\overline{Y}^{act}\)</span> is the mean of the sample actually computed. Consequently, in order to compute the <span class="math inline">\(p\)</span>-value, knowledge about the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> when the null hypothesis is true is required. However in most cases the sampling distribution of <span class="math inline">\(\overline{Y}\)</span> is unknown. Fortunately, as stated by the CLT (see Key Concept 7), the large-sample approximation <span class="math display">\[ \overline{Y} \approx \mathcal{N}(\mu_{Y,0}, \, \sigma^2_{\overline{Y}}) \ \ , \ \ \sigma^2_{\overline{Y}} = \frac{\sigma_Y^2}{n} \]</span></p>
 <p>can be made under the null. Thus,</p>
 <p><span class="math display">\[ \frac{\overline{Y} - \mu_{Y,0}}{\sigma_Y/\sqrt{n}} \sim \mathcal{N}(0,1). \]</span></p>
 <p>So in large samples, the <span class="math inline">\(p\)</span>-value can be computed <em>without</em> knowledge of the exact sampling distribution of <span class="math inline">\(\overline{Y}\)</span>.</p>
 </div>
 <div id="calculating-the-p-value-when-the-standard-deviation-is-known" class="section level3 unnumbered">
-<h3>Calculating the p-Value when the Standard Deviation is Known</h3>
-<p>For now, let us assume that <span class="math inline">\(\sigma_{\overline{Y}}\)</span> is known. Then, we can rewrite @ref(eq:pvalue) as</p>
+<h3>p-Values with Known Standard Deviation</h3>
+<p>For now, let us assume that <span class="math inline">\(\sigma_{\overline{Y}}\)</span> is known. Then, we can rewrite the equation above as</p>
 <p><span class="math display">\[\begin{align}
 p \text{-value} =&amp; \, P_{H_0}\left[ \left\lvert \frac{\overline{Y} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert &gt; \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert \right] \\
-=&amp; \, 2 \cdot \Phi \left[ - \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}}  \right\rvert\right].  (\#eq:pvaluenorm1)
+=&amp; \, 2 \cdot \Phi \left[ - \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}}  \right\rvert\right]. 
 \end{align}\]</span></p>
 <p>The <span class="math inline">\(p\)</span>-value can be seen as the area in the tails of the <span class="math inline">\(\mathcal{N}(0,1)\)</span> distribution that lies beyond</p>
 <p><span class="math display">\[\begin{equation}
-\pm \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert (\#eq:pvaluenorm2)
+\pm \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert 
 \end{equation}\]</span></p>
-<p>We now use <tt>R</tt> to visualize what is stated in @ref(eq:pvaluenorm1) and @ref(eq:pvaluenorm2):</p>
+<p>We now use <tt>R</tt> to visualize what is stated in the last two equations:</p>
 <div class="unfolded">
 <pre class="r"><code># plot the standard normal density on the interval [-4,4]
 curve(dnorm(x),
@@ -671,7 +671,7 @@ polygon(x = c(1.5, seq(1.5, 6, 0.01), 6),
 </div>
 </div>
 <div id="SVSSDASE" class="section level3 unnumbered">
-<h3>Sample Variance, Sample Standard Deviation and Standard Error</h3>
+<h3>Sample Variance</h3>
 <p>If <span class="math inline">\(\sigma^2_Y\)</span> is unknown, it must be estimated. This can be done using the sample variance</p>
 <p><span class="math display">\[\begin{equation}
 s_Y^2 = \frac{1}{n-1} \sum_{i=1}^n (Y_i - \overline{Y})^2.
@@ -749,7 +749,7 @@ mean(mean_estimates)</code></pre>
 <p>Both estimators seem to be unbiased for the true parameters. In fact, this is true for the sample mean, but not for <span class="math inline">\(SE(\overline{Y})\)</span>. However, both estimators are <em>consistent</em> for the true parameters.</p>
 </div>
 <div id="calculating-the-p-value-when-the-standard-deviation-is-unknown" class="section level3 unnumbered">
-<h3>Calculating the p-value When the Standard Deviation is Unknown</h3>
+<h3>p-value with Unknown Standard Deviation</h3>
 <p>When <span class="math inline">\(\sigma_Y\)</span> is unknown, the <span class="math inline">\(p\)</span>-value for a hypothesis test concerning <span class="math inline">\(\mu_Y\)</span> using <span class="math inline">\(\overline{Y}\)</span> can be computed by replacing <span class="math inline">\(\sigma_{\overline{Y}}\)</span> in @ref(eq:pvaluenorm1) by the standard error <span class="math inline">\(SE(\overline{Y}) = \hat\sigma_{\overline{Y}}\)</span>. Then,</p>
 <p><span class="math display">\[ p\text{-value} = 2\cdot\Phi\left(-\left\lvert \frac{\overline{Y}^{act}-\mu_{Y,0}}{SE(\overline{Y})} \right\rvert \right). \]</span></p>
 <p>This is easily done in <tt>R</tt>:</p>
@@ -772,7 +772,7 @@ pvalue</code></pre>
 <h3>The t-statistic</h3>
 <p>In hypothesis testing, the standardized sample average</p>
 <p><span class="math display">\[\begin{equation}
-t = \frac{\overline{Y} - \mu_{Y,0}}{SE(\overline{Y})} (\#eq:tstat)
+t = \frac{\overline{Y} - \mu_{Y,0}}{SE(\overline{Y})} 
 \end{equation}\]</span></p>
 <p>is called a <span class="math inline">\(t\)</span>-statistic. This <span class="math inline">\(t\)</span>-statistic plays an important role in testing hypotheses about <span class="math inline">\(\mu_Y\)</span>. It is a prominent example of a test statistic.</p>
 <p>Implicitly, we already have computed a <span class="math inline">\(t\)</span>-statistic for <span class="math inline">\(\overline{Y}\)</span> in the previous code chunk.</p>
@@ -780,7 +780,7 @@ t = \frac{\overline{Y} - \mu_{Y,0}}{SE(\overline{Y})} (\#eq:tstat)
 tstatistic &lt;- (samplemean_act - mean_h0) / SE_samplemean
 tstatistic</code></pre>
 <pre><code>## [1] 0.3196014</code></pre>
-<p>Using <tt>R</tt> we can illustrate that if <span class="math inline">\(\mu_{Y,0}\)</span> equals the true value, that is, if the null hypothesis is true, @ref(eq:tstat) is approximately <span class="math inline">\(\mathcal{N}(0,1)\)</span> distributed when <span class="math inline">\(n\)</span> is large.</p>
+<p>Using <tt>R</tt> we can illustrate that if <span class="math inline">\(\mu_{Y,0}\)</span> equals the true value, that is, if the null hypothesis is true, the <span class="math inline">\(t\)</span>-statistic equation is approximately <span class="math inline">\(\mathcal{N}(0,1)\)</span> distributed when <span class="math inline">\(n\)</span> is large.</p>
 <pre class="r"><code># prepare empty vector for t-statistics
 tstatistics &lt;- numeric(10000)
 # set sample size
@@ -812,10 +812,10 @@ curve(dnorm(x),
       lwd = 2)</code></pre>
 <p><img src="basic_statistics_review_using_R_files/figure-html/unnamed-chunk-25-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<p>Judging from the plot, the normal approximation works reasonably well for the chosen sample size. This normal approximation has already been used in the definition of the <span class="math inline">\(p\)</span>-value, see @ref(eq:tstat).</p>
+<p>Judging from the plot, the normal approximation works reasonably well for the chosen sample size. This normal approximation has already been used in the definition of the <span class="math inline">\(p\)</span>-value, above.</p>
 </div>
 <div id="hypothesis-testing-with-a-prespecified-significance-level" class="section level3 unnumbered">
-<h3>Hypothesis Testing with a Prespecified Significance Level</h3>
+<h3>Hypothesis Testing</h3>
 <div id="KC11" class="keyconcept">
 <h3 class="right">
 Key Concept 11
@@ -857,7 +857,7 @@ Testing the Hypothesis <span class="math inline">\(E(Y) = \mu_{Y,0}\)</span> Aga
 </div>
 <div id="one-sided-alternatives" class="section level3 unnumbered">
 <h3>One-sided Alternatives</h3>
-<p>Sometimes we are interested in testing if the mean is bigger or smaller than some value hypothesized under the null. If we anticipate that such a differential exists, a relevant alternative (to the null hypothesis that there is differential) is that the observed values for a group, <span class="math inline">\(\mu_Y\)</span> is <em>bigger</em> than <span class="math inline">\(\mu_{Y,0}\)</span>, the average for another group, which we assume to be known here for simplicity (Section @ref{cmfdp} discusses how to test the equivalence of to unknown population means).</p>
+<p>Sometimes we are interested in testing if the mean is bigger or smaller than some value hypothesized under the null. If we anticipate that such a differential exists, a relevant alternative (to the null hypothesis that there is differential) is that the observed values for a group, <span class="math inline">\(\mu_Y\)</span> is <em>bigger</em> than <span class="math inline">\(\mu_{Y,0}\)</span>, the average for another group, which we assume to be known here for simplicity.</p>
 <p>This is an example of a <em>right-sided test</em> and the hypotheses pair is chosen to be</p>
 <p><span class="math display">\[ H_0: \mu_Y = \mu_{Y,0} \ \ \text{vs} \ \ H_1: \mu_Y &gt; \mu_{Y,0}. \]</span></p>
 <p>We reject the null hypothesis if the computed test-statistic is larger than the critical value <span class="math inline">\(1.64\)</span>, the <span class="math inline">\(0.95\)</span>-quantile of the <span class="math inline">\(\mathcal{N}(0,1)\)</span> distribution. This ensures that <span class="math inline">\(1-0.95=5\%\)</span> probability mass remains in the area to the right of the critical value. As before, we can visualize this in <tt>R</tt> using the function <tt>polygon()</tt>.</p>
