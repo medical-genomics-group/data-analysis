@@ -908,7 +908,7 @@ polygon(x = c(-4, seq(-4, -1.64, 0.01), -1.64),
 </div>
 </div>
 <div id="confidence-intervals-for-the-population-mean" class="section level2">
-<h2><span class="header-section-number">1.4</span> Confidence Intervals for the Population Mean</h2>
+<h2><span class="header-section-number">1.4</span> Population Mean Confidence Intervals/h2>
 <p>As stressed before, we will never estimate the <em>exact</em> value of the population mean of <span class="math inline">\(Y\)</span> using a random sample. However, we can compute confidence intervals for the population mean. In general, a confidence interval for an unknown parameter is a recipe that, in repeated samples, yields intervals that contain the true parameter with a prespecified probability, the <em>confidence level</em>. Confidence intervals are computed using the information available in the sample. Since this information is the result of a random process, confidence intervals are random variables themselves.</p>
 <p>Key Concept 13 shows how to compute confidence intervals for the unknown population mean <span class="math inline">\(E(Y)\)</span>.</p>
 <div id="KC13" class="keyconcept">
@@ -916,7 +916,7 @@ polygon(x = c(-4, seq(-4, -1.64, 0.01), -1.64),
 Key Concept 13
 </h3>
 <h3 class="left">
-Confidence Intervals for the Population Mean
+Population Mean Confidence Intervals
 </h3>
 <p>A <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu_Y\)</span> is a random variable that contains the true <span class="math inline">\(\mu_Y\)</span> in <span class="math inline">\(95\%\)</span> of all possible random samples. When <span class="math inline">\(n\)</span> is large we can use the normal approximation. Then, <span class="math inline">\(99\%\)</span>, <span class="math inline">\(95\%\)</span>, <span class="math inline">\(90\%\)</span> confidence intervals are <span class="math display">\[\begin{align}
 &amp;99\%\text{ confidence interval for } \mu_Y = \left[ \overline{Y} \pm 2.58 \times SE(\overline{Y}) \right], \\
@@ -963,14 +963,14 @@ ls(t.test(sampledata))</code></pre>
 <p><span class="math display">\[ p\text{-value} = 2.2\cdot 10^{-16} \ll 0.05. \]</span></p>
 </div>
 <div id="cmfdp" class="section level2">
-<h2><span class="header-section-number">1.5</span> Comparing Means from Different Populations</h2>
+<h2><span class="header-section-number">1.5</span> Comparing Different Population Means</h2>
 <p>Suppose you are interested in the means of two different populations, denote them <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>. More specifically, you are interested whether these population means are different from each other and plan to use a hypothesis test to verify this on the basis of independent sample data from both populations. A suitable pair of hypotheses is</p>
 <p><span class="math display">\[\begin{equation}
-H_0: \mu_1 - \mu_2 = d_0 \ \ \text{vs.} \ \ H_1: \mu_1 - \mu_2 \neq d_0 (\#eq:hypmeans)
+H_0: \mu_1 - \mu_2 = d_0 \ \ \text{vs.} \ \ H_1: \mu_1 - \mu_2 \neq d_0 
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(d_0\)</span> denotes the hypothesized difference in means (so <span class="math inline">\(d_0=0\)</span> when the means are equal, under the null hypothesis). <span class="math inline">\(H_0\)</span> can be tested with the <span class="math inline">\(t\)</span>-statistic</p>
 <p><span class="math display">\[\begin{equation}
-t=\frac{(\overline{Y}_1 - \overline{Y}_2) - d_0}{SE(\overline{Y}_1 - \overline{Y}_2)} (\#eq:tstatmeans)
+t=\frac{(\overline{Y}_1 - \overline{Y}_2) - d_0}{SE(\overline{Y}_1 - \overline{Y}_2)} 
 \end{equation}\]</span></p>
 <p>where</p>
 <p><span class="math display">\[\begin{equation}
@@ -1001,7 +1001,7 @@ t.test(sample_pop1, sample_pop2)</code></pre>
 <p>We find that the two sample <span class="math inline">\(t\)</span>-test does not reject the (true) null hypothesis that <span class="math inline">\(d_0 = 0\)</span>.</p>
 </div>
 <div id="scatterplots-sample-covariance-and-sample-correlation" class="section level2">
-<h2><span class="header-section-number">1.6</span> Scatterplots, Sample Covariance and Sample Correlation</h2>
+<h2><span class="header-section-number">1.6</span> Scatterplots and Sample Covariance</h2>
 <p>A scatter plot represents two dimensional data, for example <span class="math inline">\(n\)</span> observation on <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span>, by points in a coordinate system. It is very easy to generate scatter plots using the <tt>plot()</tt> function in <tt>R</tt>. Let us generate some artificial data and plot it.</p>
 <pre class="r"><code># set random seed
 set.seed(123)
@@ -1110,7 +1110,7 @@ abline(a = 713, b = -3)</code></pre>
 Key Concept 14
 </h3>
 <h3 class="left">
-Terminology for the Linear Regression Model with a Single Regressor
+Linear Regression Model
 </h3>
 <p>
 The linear regression model is <span class="math display">\[Y_i = \beta_0 + \beta_1 X_i + u_i\]</span> where - the index <span class="math inline">\(i\)</span> runs over the observations, <span class="math inline">\(i=1,\dots,n\)</span> - <span class="math inline">\(Y_i\)</span> is the <em>dependent variable</em>, the <em>regressand</em>, or simply the <em>left-hand variable</em> - <span class="math inline">\(X_i\)</span> is the <em>independent variable</em>, the <em>regressor</em>, or simply the <em>right-hand variable</em> - <span class="math inline">\(Y = \beta_0 + \beta_1 X\)</span> is the <em>population regression line</em> also called the <em>population regression function</em> - <span class="math inline">\(\beta_0\)</span> is the <em>intercept</em> of the population regression line - <span class="math inline">\(\beta_1\)</span> is the <em>slope</em> of the population regression line - <span class="math inline">\(u_i\)</span> is the <em>error term</em>.
@@ -1118,7 +1118,7 @@ The linear regression model is <span class="math display">\[Y_i = \beta_0 + \bet
 </div>
 </div>
 <div id="estimating-the-coefficients-of-the-linear-regression-model" class="section level2">
-<h2><span class="header-section-number">1.8</span> Estimating the Coefficients of the Linear Regression Model</h2>
+<h2><span class="header-section-number">1.8</span> Estimating the Coefficients</h2>
 <p>In practice, the intercept <span class="math inline">\(\beta_0\)</span> and slope <span class="math inline">\(\beta_1\)</span> of the population regression line are unknown. Therefore, we must employ data to estimate both unknown parameters. In the following, we will use a dataset to demonstrate how this is achieved. We want to relate patient scores to patient-doctor ratios measured in regional hospitals. The patient score is the average of their health and satisfaction scores. Again, we use the number of patients divided by the number of doctors (the patient-doctor ratio). The data set can be loaded using the function <tt>read.table()</tt> and can be downloaded from the course Moodle page.</p>
 <pre class="r"><code>## # load the the data set in the workspace
 ## data &lt;- read.table(&quot;hospitals.txt&quot;,header=TRUE)</code></pre>
@@ -1202,7 +1202,7 @@ DistributionSummary</code></pre>
 Key Concept 15
 </h3>
 <h3 class="left">
-The OLS Estimator, Predicted Values, and Residuals
+The OLS Estimator
 </h3>
 <p>
 The OLS estimators of the slope <span class="math inline">\(\beta_1\)</span> and the intercept <span class="math inline">\(\beta_0\)</span> in the simple linear regression model are <span class="math display">\[\begin{align}
@@ -1440,10 +1440,10 @@ Key Concept 17
 Large Sample Distribution of <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span>
 </h3>
 <p>
-If the least squares assumptions in Key Concept 4.3 hold, then in large samples <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span> have a joint normal sampling distribution. The large sample normal distribution of <span class="math inline">\(\hat\beta_1\)</span> is <span class="math inline">\(\mathcal{N}(\beta_1, \sigma^2_{\hat\beta_1})\)</span>, where the variance of the distribution, <span class="math inline">\(\sigma^2_{\hat\beta_1}\)</span>, is <span class="math display">\[\begin{align}
-\sigma^2_{\hat\beta_1} = \frac{1}{n} \frac{Var \left[ \left(X_i - \mu_X \right) u_i  \right]}  {\left[  Var \left(X_i \right)  \right]^2}. (\#eq:olsvar1)
+If the least squares assumptions hold, then in large samples <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span> have a joint normal sampling distribution. The large sample normal distribution of <span class="math inline">\(\hat\beta_1\)</span> is <span class="math inline">\(\mathcal{N}(\beta_1, \sigma^2_{\hat\beta_1})\)</span>, where the variance of the distribution, <span class="math inline">\(\sigma^2_{\hat\beta_1}\)</span>, is <span class="math display">\[\begin{align}
+\sigma^2_{\hat\beta_1} = \frac{1}{n} \frac{Var \left[ \left(X_i - \mu_X \right) u_i  \right]}  {\left[  Var \left(X_i \right)  \right]^2}.
 \end{align}\]</span> The large sample normal distribution of <span class="math inline">\(\hat\beta_0\)</span> is <span class="math inline">\(\mathcal{N}(\beta_0, \sigma^2_{\hat\beta_0})\)</span> with <span class="math display">\[\begin{align}
-\sigma^2_{\hat\beta_0} =  \frac{1}{n} \frac{Var \left( H_i u_i \right)}{ \left[  E \left(H_i^2  \right)  \right]^2 } \ , \ \text{where} \ \ H_i = 1 - \left[ \frac{\mu_X} {E \left( X_i^2\right)} \right] X_i. (\#eq:olsvar2)
+\sigma^2_{\hat\beta_0} =  \frac{1}{n} \frac{Var \left( H_i u_i \right)}{ \left[  E \left(H_i^2  \right)  \right]^2 } \ , \ \text{where} \ \ H_i = 1 - \left[ \frac{\mu_X} {E \left( X_i^2\right)} \right] X_i. 
 \end{align}\]</span> The interactive simulation below continuously generates random samples <span class="math inline">\((X_i,Y_i)\)</span> of <span class="math inline">\(200\)</span> observations where <span class="math inline">\(E(Y\vert X) = 100 + 3X\)</span>, estimates a simple regression model, stores the estimate of the slope <span class="math inline">\(\beta_1\)</span> and visualizes the distribution of the <span class="math inline">\(\widehat{\beta}_1\)</span>s observed so far using a histogram. The idea here is that for a large number of <span class="math inline">\(\widehat{\beta}_1\)</span>s, the histogram gives a good approximation of the sampling distribution of the estimator. By decreasing the time between two sampling iterations, it becomes clear that the shape of the histogram approaches the characteristic bell shape of a normal distribution centered at the true slope of <span class="math inline">\(3\)</span>. <iframe height="470" width="700" frameborder="0" scrolling="no" src="SmallSampleDIstReg.html"></iframe>
 </p>
 </div>
@@ -1457,7 +1457,7 @@ u &lt;- rnorm(N, sd = 10)
 # population regression
 Y &lt;- -2 + 3.5 * X + u
 population &lt;- data.frame(X, Y)</code></pre>
-<p>From now on we will consider the previously generated data as the true population (which of course would be <em>unknown</em> in a real world application, otherwise there would be no reason to draw a random sample in the first place). The knowledge about the true population and the true relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> can be used to verify the statements made in Key Concept 4.4. First, let us calculate the true variances <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> for a randomly drawn sample of size <span class="math inline">\(n = 100\)</span>.</p>
+<p>From now on we will consider the previously generated data as the true population (which of course would be <em>unknown</em> in a real world application, otherwise there would be no reason to draw a random sample in the first place). The knowledge about the true population and the true relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> can be used to verify the statements made in Key Concept 17. First, let us calculate the true variances <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> for a randomly drawn sample of size <span class="math inline">\(n = 100\)</span>.</p>
 <pre class="r"><code># set sample size
 n &lt;- 100
 # compute the variance of beta_hat_0
@@ -1618,7 +1618,7 @@ abline(lm.set2, col = &quot;red&quot;)</code></pre>
 </div>
 </div>
 <div id="htaciitslrm" class="section level1">
-<h1><span class="header-section-number">2</span> Hypothesis Tests and Confidence Intervals in the Simple Linear Regression Model</h1>
+<h1><span class="header-section-number">2</span> Hypothesis Tests in Linear Regression</h1>
 <p>We may now use our knowledge about the sampling distribution of the OLS estimator in order to make statements regarding its uncertainty.</p>
 <p>These subsections cover the following topics:</p>
 <ul>
@@ -1630,7 +1630,7 @@ abline(lm.set2, col = &quot;red&quot;)</code></pre>
 <p>The packages <tt>scales</tt> <span class="citation">[@R-scales]</span> is required for reproduction of the code chunks presented throughout the rest of this tutorial. The package <tt>scales</tt> provides additional generic plot scaling methods. Make sure the package is installed before you proceed. The safest way to do so is by checking whether the following code chunk executes without any errors.</p>
 <pre class="r"><code>library(scales)</code></pre>
 <div id="testing-two-sided-hypotheses-concerning-the-slope-coefficient" class="section level2">
-<h2><span class="header-section-number">2.1</span> Testing Two-Sided Hypotheses Concerning the Slope Coefficient</h2>
+<h2><span class="header-section-number">2.1</span> Two-Sided Slope Hypotheses Testing</h2>
 <p>Using the fact that <span class="math inline">\(\hat{\beta}_1\)</span> is approximately normally distributed in large samples (see <a href="#tsdotoe">Key Concept 17</a>), testing hypotheses about the true value <span class="math inline">\(\beta_1\)</span> can be done.</p>
 <div id="KC18" class="keyconcept">
 <h3 class="right">
@@ -1639,7 +1639,7 @@ Key Concept 18
 <h3 class="left">
 General Form of the <span class="math inline">\(t\)</span>-Statistic
 </h3>
-<p>Remember from Chapter @ref(arosur) that a general <span class="math inline">\(t\)</span>-statistic has the form <span class="math display">\[ t = \frac{\text{estimated value} - \text{hypothesized value}}{\text{standard error of the estimator}}.\]</span></p>
+<p>Remember that a general <span class="math inline">\(t\)</span>-statistic has the form <span class="math display">\[ t = \frac{\text{estimated value} - \text{hypothesized value}}{\text{standard error of the estimator}}.\]</span></p>
 </div>
 <div id="KC19" class="keyconcept">
 <h3 class="right">
@@ -1657,7 +1657,7 @@ Recall the definition of the <span class="math inline">\(p\)</span>-value:<br />
     =&amp; \, \text{Pr}_{H_0} (|t| &gt; |t^{act}|) \\
     \approx&amp; \, 2 \cdot \Phi(-|t^{act}|)
   \end{align*}\]</span><br />
-       The last transformation is due to the normal approximation for large samples.</p>
+<p>The last transformation is due to the normal approximation for large samples.</p>
 </div>
 <p>Consider again the OLS regression output that gave us the regression line</p>
 <p><span class="math display">\[ \widehat{Score} \ = \underset{(9.47)}{698.9} - \underset{(0.49)}{2.28} \times PDR \ , \ R^2=0.051 \ , \ SER=18.6. \]</span></p>
@@ -1748,7 +1748,7 @@ rug(c(-tact, tact), ticksize  = -0.0451, lwd = 2, col = &quot;darkgreen&quot;)</
 <p>The <span class="math inline">\(p\)</span>-Value is the area under the curve to left of <span class="math inline">\(-4.75\)</span> plus the area under the curve to the right of <span class="math inline">\(4.75\)</span>. As we already know from the calculations above, this value is very small.</p>
 </div>
 <div id="cifrc" class="section level2">
-<h2><span class="header-section-number">2.2</span> Confidence Intervals for Regression Coefficients</h2>
+<h2><span class="header-section-number">2.2</span> Regression Coefficient Confidence Intervals</h2>
 <p>As we already know, estimates of the regression coefficients <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are subject to sampling uncertainty. Therefore, we will <em>never</em> exactly estimate the true value of these parameters from sample data in an empirical application. However, we may construct confidence intervals for the intercept and the slope parameter.</p>
 <p>A <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\beta_i\)</span> has two equivalent definitions:</p>
 <ul>
@@ -1761,7 +1761,7 @@ rug(c(-tact, tact), ticksize  = -0.0451, lwd = 2, col = &quot;darkgreen&quot;)</
 Key Concept 20
 </h3>
 <h3 class="left">
-A Confidence Interval for <span class="math inline">\(\beta_i\)</span>
+<span class="math inline">\(\beta_i\)</span> Confidence Interval
 </h3>
 <p>Imagine you could draw all possible random samples of given size. The interval that contains the true value <span class="math inline">\(\beta_i\)</span> in <span class="math inline">\(95\%\)</span> of all samples is given by the expression <span class="math display">\[ \text{CI}_{0.95}^{\beta_i} = \left[ \hat{\beta}_i - 1.96 \times SE(\hat{\beta}_i) \, , \, \hat{\beta}_i + 1.96 \times SE(\hat{\beta}_i) \right]. \]</span> Equivalently, this interval can be seen as the set of null hypotheses for which a <span class="math inline">\(5\%\)</span> two-sided hypothesis test does not reject.</p>
 </div>
@@ -1866,16 +1866,16 @@ c(&quot;lower&quot; = lm_summ$coef[2,1] - qt(0.975, df = lm_summ$df[2]) * lm_sum
 </div>
 </div>
 <div id="rwxiabv" class="section level2">
-<h2><span class="header-section-number">2.3</span> Regression when X is a Binary Variable</h2>
+<h2><span class="header-section-number">2.3</span> Regression with a Binary Variable</h2>
 <p>Instead of using a continuous regressor <span class="math inline">\(X\)</span>, we might be interested in running the regression</p>
-<p><span class="math display">\[ Y_i = \beta_0 + \beta_1 D_i + u_i \tag{5.2} \]</span></p>
+<p><span class="math display">\[ Y_i = \beta_0 + \beta_1 D_i + u_i \]</span></p>
 <p>where <span class="math inline">\(D_i\)</span> is a binary variable, a so-called <em>dummy variable</em>. For example, we may define <span class="math inline">\(D_i\)</span> as follows:</p>
 <p><span class="math display">\[ D_i = \begin{cases}
         1 \ \ \text{if $PDR$ in $i^{th}$ hospital &lt; 20} \\
         0 \ \ \text{if $PDR$ in $i^{th}$ hospital $\geq$ 20} \\
-      \end{cases} \tag{5.3} \]</span></p>
+      \end{cases} \]</span></p>
 <p>The regression model now is</p>
-<p><span class="math display">\[ Score_i = \beta_0 + \beta_1 D_i + u_i. \tag{5.4} \]</span></p>
+<p><span class="math display">\[ Score_i = \beta_0 + \beta_1 D_i + u_i. \]</span></p>
 <p>Let us see how these data look like in a scatter plot:</p>
 <div class="unfolded">
 <pre class="r"><code># Create the dummy variable as defined above
@@ -1947,14 +1947,14 @@ confint(dummy_model)</code></pre>
 <p>We reject the hypothesis that there is no difference between group means at the <span class="math inline">\(5\%\)</span> significance level since <span class="math inline">\(\beta_{1,0} = 0\)</span> lies outside of <span class="math inline">\([3.54, 10.8]\)</span>, the <span class="math inline">\(95\%\)</span> confidence interval for the coefficient on <span class="math inline">\(D\)</span>.</p>
 </div>
 <div id="hah" class="section level2">
-<h2><span class="header-section-number">2.4</span> Heteroskedasticity and Homoskedasticity</h2>
+<h2><span class="header-section-number">2.4</span> Hetero/Homoskedasticity</h2>
 <p>All inference made in the previous sections relies on the assumption that the error variance does not vary as regressor values change. But this will often not be the case in empirical applications.</p>
 <div id="KC21" class="keyconcept">
 <h3 class="right">
 Key Concept 21
 </h3>
 <h3 class="left">
-Heteroskedasticity and Homoskedasticity
+Hetero/Homoskedasticity
 </h3>
 <ul>
 <li>The error term of our regression model is homoskedastic if the variance of the conditional distribution of <span class="math inline">\(u_i\)</span> given <span class="math inline">\(X_i\)</span>, <span class="math inline">\(Var(u_i|X_i=x)\)</span>, is constant <em>for all</em> observations in our sample: <span class="math display">\[ \text{Var}(u_i|X_i=x) = \sigma^2 \ \forall \ i=1,\dots,n. \]</span></li>
@@ -2005,10 +2005,10 @@ boxplot(formula = y ~ x,
 <p>We have used the <tt>formula</tt> argument <tt>y ~ x</tt> in <tt>boxplot()</tt> to specify that we want to split up the vector <tt>y</tt> into groups according to <tt>x</tt>. <tt>boxplot(y ~ x)</tt> generates a boxplot for each of the groups in <tt>y</tt> defined by <tt>x</tt>.</p>
 <p>For this artificial data it is clear that the conditional error variances differ. Specifically, we observe that the variance in patient scores (and therefore the variance of the errors committed) <em>increases</em> with the patient-doctor ratio.</p>
 <div id="should-we-care-about-heteroskedasticity" class="section level3 unnumbered">
-<h3>Should We Care About Heteroskedasticity?</h3>
+<h3>Should We Care?</h3>
 <p>To answer the question whether we should worry about heteroskedasticity being present, consider the variance of <span class="math inline">\(\hat\beta_1\)</span> under the assumption of homoskedasticity. In this case we have</p>
-<p><span class="math display">\[ \sigma^2_{\hat\beta_1} = \frac{\sigma^2_u}{n \cdot \sigma^2_X} \tag{5.5} \]</span></p>
-<p>which is a simplified version of the general equation (<a href="#mjx-eqn-4.1">4.1</a>) presented in Key Concept 19. <tt>summary()</tt> estimates (<a href="#mjx-eqn-5.5">5.5</a>) by</p>
+<p><span class="math display">\[ \sigma^2_{\hat\beta_1} = \frac{\sigma^2_u}{n \cdot \sigma^2_X} \]</span></p>
+<p>which is a simplified version of the general equation presented in Key Concept 19. <tt>summary()</tt> estimates this by</p>
 <p><span class="math display">\[ \overset{\sim}{\sigma}^2_{\hat\beta_1} = \frac{SER^2}{\sum_{i=1}^n (X_i - \overline{X})^2} \ \ \text{where} \ \ SER=\frac{1}{n-2} \sum_{i=1}^n \hat u_i^2. \]</span></p>
 <p>Thus <tt>summary()</tt> estimates the <em>homoskedasticity-only</em> standard error</p>
 <p><span class="math display">\[ \sqrt{ \overset{\sim}{\sigma}^2_{\hat\beta_1} } = \sqrt{ \frac{SER^2}{\sum_{i=1}^n(X_i - \overline{X})^2} }. \]</span></p>
@@ -2031,7 +2031,7 @@ round(model$coefficients[2, 2], 4) == round(SE.beta_1.hat, 4)</code></pre>
 <p>Indeed, the estimated values are equal.</p>
 </div>
 <div id="computation-of-heteroskedasticity-robust-standard-errors" class="section level3 unnumbered">
-<h3>Computation of Heteroskedasticity-Robust Standard Errors</h3>
+<h3>Robust Standard Errors</h3>
 <p>Consistent estimation of <span class="math inline">\(\sigma_{\hat{\beta}_1}\)</span> under heteroskedasticity is granted when the following <em>robust</em> estimator is used.</p>
 <p><span class="math display">\[ SE(\hat{\beta}_1) = \sqrt{ \frac{1}{n} \cdot \frac{ \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^2 \hat{u}_i^2 }{ \left[ \frac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^2  \right]^2} } \tag{5.6} \]</span></p>
 <p>Standard error estimates computed this way are also referred to as <a href="https://en.wikipedia.org/wiki/Heteroscedasticity-consistent_standard_errors">Eicker-Huber-White standard errors</a>.</p>
@@ -2152,18 +2152,18 @@ Key Concept 22
 <h3 class="left">
 The Gauss-Markov Theorem for <span class="math inline">\(\hat{\beta}_1\)</span>
 </h3>
-<p>Suppose that the assumptions made in Key Concept 4.3 hold <em>and</em> that the errors are <em>homoskedastic</em>. The OLS estimator is the best (in the sense of smallest variance) linear conditionally unbiased estimator (BLUE) in this setting. Let us have a closer look at what this means: - Estimators of <span class="math inline">\(\beta_1\)</span> that are linear functions of the <span class="math inline">\(Y_1, \dots, Y_n\)</span> and that are unbiased conditionally on the regressor <span class="math inline">\(X_1, \dots, X_n\)</span> can be written as <span class="math display">\[ \overset{\sim}{\beta}_1 = \sum_{i=1}^n a_i Y_i \]</span> where the <span class="math inline">\(a_i\)</span> are weights that are allowed to depend on the <span class="math inline">\(X_i\)</span> but <em>not</em> on the <span class="math inline">\(Y_i\)</span>. - We already know that <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> has a sampling distribution: <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is a linear function of the <span class="math inline">\(Y_i\)</span> which are random variables. If now <span class="math display">\[ E(\overset{\sim}{\beta}_1 | X_1, \dots, X_n) = \beta_1, \]</span> <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is a linear unbiased estimator of <span class="math inline">\(\beta_1\)</span>, conditionally on the <span class="math inline">\(X_1, \dots, X_n\)</span>. - We may ask if <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is also the <em>best</em> estimator in this class, i.e., the most efficient one of all linear conditionally unbiased estimators where “most efficient” means smallest variance. The weights <span class="math inline">\(a_i\)</span> play an important role here and it turns out that OLS uses just the right weights to have the BLUE property.</p>
+<p>Suppose that the assumptions hold <em>and</em> that the errors are <em>homoskedastic</em>. The OLS estimator is the best (in the sense of smallest variance) linear conditionally unbiased estimator (BLUE) in this setting. Let us have a closer look at what this means: - Estimators of <span class="math inline">\(\beta_1\)</span> that are linear functions of the <span class="math inline">\(Y_1, \dots, Y_n\)</span> and that are unbiased conditionally on the regressor <span class="math inline">\(X_1, \dots, X_n\)</span> can be written as <span class="math display">\[ \overset{\sim}{\beta}_1 = \sum_{i=1}^n a_i Y_i \]</span> where the <span class="math inline">\(a_i\)</span> are weights that are allowed to depend on the <span class="math inline">\(X_i\)</span> but <em>not</em> on the <span class="math inline">\(Y_i\)</span>. - We already know that <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> has a sampling distribution: <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is a linear function of the <span class="math inline">\(Y_i\)</span> which are random variables. If now <span class="math display">\[ E(\overset{\sim}{\beta}_1 | X_1, \dots, X_n) = \beta_1, \]</span> <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is a linear unbiased estimator of <span class="math inline">\(\beta_1\)</span>, conditionally on the <span class="math inline">\(X_1, \dots, X_n\)</span>. - We may ask if <span class="math inline">\(\overset{\sim}{\beta}_1\)</span> is also the <em>best</em> estimator in this class, i.e., the most efficient one of all linear conditionally unbiased estimators where “most efficient” means smallest variance. The weights <span class="math inline">\(a_i\)</span> play an important role here and it turns out that OLS uses just the right weights to have the BLUE property.</p>
 </div>
 <div id="simulation-study-blue-estimator" class="section level3 unnumbered">
 <h3>Simulation Study: BLUE Estimator</h3>
 <p>Consider the case of a regression of <span class="math inline">\(Y_i,\dots,Y_n\)</span> only on a constant. Here, the <span class="math inline">\(Y_i\)</span> are assumed to be a random sample from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. The OLS estimator in this model is simply the sample mean.</p>
 <p><span class="math display">\[\begin{equation}
-\hat{\beta}_1 = \sum_{i=1}^n \underbrace{\frac{1}{n}}_{=a_i} Y_i (\#eq:bluemean)
+\hat{\beta}_1 = \sum_{i=1}^n \underbrace{\frac{1}{n}}_{=a_i} Y_i 
 \end{equation}\]</span></p>
 <p>Clearly, each observation is weighted by</p>
 <p><span class="math display">\[a_i = \frac{1}{n}.\]</span></p>
 <p>and we also know that <span class="math inline">\(\text{Var}(\hat{\beta}_1)=\frac{\sigma^2}{n}\)</span>.</p>
-<p>We now use <tt>R</tt> to conduct a simulation study that demonstrates what happens to the variance of @ref(eq:bluemean) if different weights <span class="math display">\[ w_i = \frac{1 \pm \epsilon}{n} \]</span> are assigned to either half of the sample <span class="math inline">\(Y_1, \dots, Y_n\)</span> instead of using <span class="math inline">\(\frac{1}{n}\)</span>, the OLS weights.</p>
+<p>We now use <tt>R</tt> to conduct a simulation study that demonstrates what happens to the variance if different weights <span class="math display">\[ w_i = \frac{1 \pm \epsilon}{n} \]</span> are assigned to either half of the sample <span class="math inline">\(Y_1, \dots, Y_n\)</span> instead of using <span class="math inline">\(\frac{1}{n}\)</span>, the OLS weights.</p>
 <div class="unfolded">
 <pre class="r"><code># set sample size and number of repetitions
 n &lt;- 100      
@@ -2212,7 +2212,7 @@ legend(&#39;topright&#39;,
 </div>
 </div>
 <div id="using-the-t-statistic-in-regression-when-the-sample-size-is-small" class="section level2">
-<h2><span class="header-section-number">2.6</span> Using the t-Statistic in Regression When the Sample Size Is Small</h2>
+<h2><span class="header-section-number">2.6</span> Small Sample t-Statistics</h2>
 <p>The three OLS assumptions discussed above are the foundation for the results on the large sample distribution of the OLS estimators in the simple regression model. What can be said about the distribution of the estimators and their <span class="math inline">\(t\)</span>-statistics when the sample size is small and the population distribution of the data is unknown? Provided that the three least squares assumptions hold and the errors are normally distributed and homoskedastic (we refer to these conditions as the homoskedastic normal regression assumptions), we have normally distributed estimators and <span class="math inline">\(t\)</span>-distributed test statistics in small samples.</p>
 <p>Recall the <a href="#thetdist">definition</a> of a <span class="math inline">\(t\)</span>-distributed variable</p>
 <p><span class="math display">\[ \frac{Z}{\sqrt{W/M}} \sim t_M\]</span></p>
