@@ -440,9 +440,8 @@ If the mean of the sampling distribution of some estimator <span class="math inl
 <div id="potsm" class="section level2">
 <h2><span class="header-section-number">1.2</span> Properties of the Sample Mean</h2>
 
-<div class="rmdknit">
-A more precise way to express consistency of an estimator <span class="math inline">\(\hat\mu\)</span> for a parameter <span class="math inline">\(\mu\)</span> is <span class="math display">\[ P(|\hat{\mu} - \mu|&lt;\epsilon) \xrightarrow[n \rightarrow \infty]{p} 1 \quad \text{for any}\quad\epsilon&gt;0.\]</span> This expression says that the probability of observing a deviation from the true value <span class="math inline">\(\mu\)</span> that is smaller than some arbitrary <span class="math inline">\(\epsilon &gt; 0\)</span> converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(n\)</span> grows. Consistency does not require unbiasedness.
-</div>
+<p>A more precise way to express consistency of an estimator <span class="math inline">\(\hat\mu\)</span> for a parameter <span class="math inline">\(\mu\)</span> is <span class="math display">\[ P(|\hat{\mu} - \mu|&lt;\epsilon) \xrightarrow[n \rightarrow \infty]{p} 1 \quad \text{for any}\quad\epsilon&gt;0.\]</span>.</p> 
+<p>This expression says that the probability of observing a deviation from the true value <span class="math inline">\(\mu\)</span> that is smaller than some arbitrary <span class="math inline">\(\epsilon &gt; 0\)</span> converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(n\)</span> grows. Consistency does not require unbiasedness.</p>
 
 <p>To examine properties of the sample mean as an estimator for the corresponding population mean, consider the following <tt>R</tt> example.</p>
 <p>We generate a population <tt>pop</tt> consisting of observations <span class="math inline">\(Y_i\)</span>, <span class="math inline">\(i=1,\dots,10000\)</span> that origin from a normal distribution with mean <span class="math inline">\(\mu = 10\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>.</p>
