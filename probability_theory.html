@@ -395,6 +395,7 @@ div.tocify {
 <pre><code>## [1] 5</code></pre>
 <p>The probability distribution of a discrete random variable is the list of all possible values of the variable and their probabilities which sum to <span class="math inline">\(1\)</span>. The cumulative probability distribution function gives the probability that the random variable is less than or equal to a particular value.</p>
 <p>For the dice roll, the probability distribution and the cumulative probability distribution are summarized in Table <a href="tab:pdist">1</a>.</p>
+<div>
 <table>
 <caption>
 <span id="tab:pdist">Table 1: </span>PDF and CDF of a Dice Roll
@@ -471,6 +472,7 @@ Cumulative Probability
 </tr>
 </tbody>
 </table>
+</div>
 </ul>
 <p>We can easily plot both functions using <tt>R</tt>. Since the probability equals <span class="math inline">\(1/6\)</span> for each outcome, we set up the vector <tt>probability</tt> by using the function <tt>rep()</tt> which replicates a given value a specified number of times.</p>
 <div class="unfolded">
