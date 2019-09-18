@@ -602,7 +602,7 @@ legend(&quot;topleft&quot;,
 </div>
 </div>
 <div id="hypothesis-tests-concerning-the-population-mean" class="section level2">
-<h2><span class="header-section-number">1.3</span> Hypothesis Tests of the Population Mean</h2>
+<h2><span class="header-section-number">1.3</span> Population Mean Hypothesis Test</h2>
 <p>In this section we briefly review concepts in hypothesis testing and discuss how to conduct hypothesis tests in <tt>R</tt>. We focus on drawing inferences about an unknown population mean.</p>
 <div id="about-hypotheses-and-hypothesis-testing" class="section level4 unnumbered">
 <h4>Hypotheses and Hypothesis Testing</h4>
@@ -631,7 +631,7 @@ p \text{-value} = P_{H_0}\left[ \lvert \overline{Y} - \mu_{Y,0} \rvert &gt; \lve
 <p>So in large samples, the <span class="math inline">\(p\)</span>-value can be computed <em>without</em> knowledge of the exact sampling distribution of <span class="math inline">\(\overline{Y}\)</span>.</p>
 </div>
 <div id="calculating-the-p-value-when-the-standard-deviation-is-known" class="section level3 unnumbered">
-<h3>p-Values with Known Standard Deviation</h3>
+<h3>p-Values with Known SD</h3>
 <p>For now, let us assume that <span class="math inline">\(\sigma_{\overline{Y}}\)</span> is known. Then, we can rewrite the equation above as</p>
 <p><span class="math display">\[\begin{align}
 p \text{-value} =&amp; \, P_{H_0}\left[ \left\lvert \frac{\overline{Y} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert &gt; \left\lvert \frac{\overline{Y}^{act} - \mu_{Y,0}}{\sigma_{\overline{Y}}} \right\rvert \right] \\
@@ -749,7 +749,7 @@ mean(mean_estimates)</code></pre>
 <p>Both estimators seem to be unbiased for the true parameters. In fact, this is true for the sample mean, but not for <span class="math inline">\(SE(\overline{Y})\)</span>. However, both estimators are <em>consistent</em> for the true parameters.</p>
 </div>
 <div id="calculating-the-p-value-when-the-standard-deviation-is-unknown" class="section level3 unnumbered">
-<h3>p-value with Unknown Standard Deviation</h3>
+<h3>p-value with Unknown SD</h3>
 <p>When <span class="math inline">\(\sigma_Y\)</span> is unknown, the <span class="math inline">\(p\)</span>-value for a hypothesis test concerning <span class="math inline">\(\mu_Y\)</span> using <span class="math inline">\(\overline{Y}\)</span> can be computed by replacing <span class="math inline">\(\sigma_{\overline{Y}}\)</span> in @ref(eq:pvaluenorm1) by the standard error <span class="math inline">\(SE(\overline{Y}) = \hat\sigma_{\overline{Y}}\)</span>. Then,</p>
 <p><span class="math display">\[ p\text{-value} = 2\cdot\Phi\left(-\left\lvert \frac{\overline{Y}^{act}-\mu_{Y,0}}{SE(\overline{Y})} \right\rvert \right). \]</span></p>
 <p>This is easily done in <tt>R</tt>:</p>
@@ -821,7 +821,7 @@ curve(dnorm(x),
 Key Concept 11
 </h3>
 <h3 class="left">
-The Terminology of Hypothesis Testing
+Hypothesis Testing Terminology
 </h3>
 <p>In hypothesis testing, two types of mistakes are possible: 1. The null hypothesis <em>is</em> rejected although it is true (type-I-error)<br />
 2. The null hypothesis <em>is not</em> rejected although it is false (type-II-error) The <strong>significance level</strong> of the test is the probability to commit a type-I-error we are willing to accept in advance. E.g., using a prespecified significance level of <span class="math inline">\(0.05\)</span>, we reject the null hypothesis if and only if the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(0.05\)</span>. The significance level is chosen before the test is conducted. An equivalent procedure is to reject the null hypothesis if the observed test statistic is, in absolute value terms, larger than the <strong>critical value</strong> of the test statistic. The critical value is determined by the significance level chosen and defines two disjoint sets of values which are called <strong>acceptance region</strong> and <strong>rejection region</strong>. The acceptance region contains all values of the test statistic for which the test does not reject while the rejection region contains all the values for which the test does reject. The <strong><span class="math inline">\(p\)</span>-value</strong> is the probability that, in repeated sampling under the same conditions a test statistic is observed that provides just as much evidence against the null hypothesis as the test statistic actually observed. The actual probability that the test rejects the true null hypothesis is called the <strong>size of the test</strong>. In an ideal setting, the size does equals the significance level. The probability that the test correctly rejects a false null hypothesis is called <strong>power</strong>.</p>
@@ -846,7 +846,7 @@ abs(tstatistic) &gt; 1.96</code></pre>
 Key Concept 12
 </h3>
 <h3 class="left">
-Testing the Hypothesis <span class="math inline">\(E(Y) = \mu_{Y,0}\)</span> Against the Alternative <span class="math inline">\(E(Y) \neq \mu_{Y,0}\)</span>
+Testing Against the Alternative</span>
 </h3>
 <ol style="list-style-type: decimal">
 <li>Estimate <span class="math inline">\(\mu_{Y}\)</span> using <span class="math inline">\(\overline{Y}\)</span> and compute the <span class="math inline">\(SE(\overline{Y})\)</span>, standard error of <span class="math inline">\(\overline{Y}\)</span>.</li>
@@ -908,7 +908,7 @@ polygon(x = c(-4, seq(-4, -1.64, 0.01), -1.64),
 </div>
 </div>
 <div id="confidence-intervals-for-the-population-mean" class="section level2">
-<h2><span class="header-section-number">1.4</span> Population Mean Confidence Intervals</h2>
+<h2><span class="header-section-number">1.4</span> Population Mean Confidence Interval</h2>
 <p>As stressed before, we will never estimate the <em>exact</em> value of the population mean of <span class="math inline">\(Y\)</span> using a random sample. However, we can compute confidence intervals for the population mean. In general, a confidence interval for an unknown parameter is a recipe that, in repeated samples, yields intervals that contain the true parameter with a prespecified probability, the <em>confidence level</em>. Confidence intervals are computed using the information available in the sample. Since this information is the result of a random process, confidence intervals are random variables themselves.</p>
 <p>Key Concept 13 shows how to compute confidence intervals for the unknown population mean <span class="math inline">\(E(Y)\)</span>.</p>
 <div id="KC13" class="keyconcept">
@@ -916,7 +916,7 @@ polygon(x = c(-4, seq(-4, -1.64, 0.01), -1.64),
 Key Concept 13
 </h3>
 <h3 class="left">
-Confidence Intervals of Mean
+Mean Confidence Interval
 </h3>
 <p>A <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu_Y\)</span> is a random variable that contains the true <span class="math inline">\(\mu_Y\)</span> in <span class="math inline">\(95\%\)</span> of all possible random samples. When <span class="math inline">\(n\)</span> is large we can use the normal approximation. Then, <span class="math inline">\(99\%\)</span>, <span class="math inline">\(95\%\)</span>, <span class="math inline">\(90\%\)</span> confidence intervals are <span class="math display">\[\begin{align}
 &amp;99\%\text{ confidence interval for } \mu_Y = \left[ \overline{Y} \pm 2.58 \times SE(\overline{Y}) \right], \\
@@ -963,7 +963,7 @@ ls(t.test(sampledata))</code></pre>
 <p><span class="math display">\[ p\text{-value} = 2.2\cdot 10^{-16} \ll 0.05. \]</span></p>
 </div>
 <div id="cmfdp" class="section level2">
-<h2><span class="header-section-number">1.5</span> Comparing Different Population Means</h2>
+<h2><span class="header-section-number">1.5</span> Comparing Population Means</h2>
 <p>Suppose you are interested in the means of two different populations, denote them <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_2\)</span>. More specifically, you are interested whether these population means are different from each other and plan to use a hypothesis test to verify this on the basis of independent sample data from both populations. A suitable pair of hypotheses is</p>
 <p><span class="math display">\[\begin{equation}
 H_0: \mu_1 - \mu_2 = d_0 \ \ \text{vs.} \ \ H_1: \mu_1 - \mu_2 \neq d_0 
@@ -1287,7 +1287,7 @@ abline(linear_model) </code></pre>
 <p>Remember that the <span class="math inline">\(u_i\)</span> are <em>unobserved</em>. This is why we use their estimated counterparts, the residuals <span class="math inline">\(\hat{u}_i\)</span>, instead.</p>
 </div>
 <div id="application-to-the-hospital-data" class="section level3 unnumbered">
-<h3>Application to the hospital data</h3>
+<h3>Application to Hospital Data</h3>
 Both measures of fit can be obtained by using the function <tt>summary()</tt> with an <tt>lm</tt> object provided as the only argument. While the function <tt>lm()</tt> only prints out the estimated coefficients to the console, <tt>summary()</tt> provides additional predefined information such as the regression’s <span class="math inline">\(R^2\)</span> and the <span class="math inline">\(SER\)</span>.<br />
 
 <div class="unfolded">
@@ -1430,7 +1430,7 @@ abline(fitWithoutOutlier, col = &quot;red&quot;)</code></pre>
 </div>
 </div>
 <div id="tsdotoe" class="section level2">
-<h2><span class="header-section-number">1.11</span> The Sampling Distribution of the OLS Estimator</h2>
+<h2><span class="header-section-number">1.11</span> OLS Estimator Sampling Distribution</h2>
 <p>Because <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are computed from a sample, the estimators themselves are random variables with a probability distribution — the so-called sampling distribution of the estimators — which describes the values they could take on over different samples. Although the sampling distribution of <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span> can be complicated when the sample size is small and generally changes with the number of observations, <span class="math inline">\(n\)</span>, it is possible, provided the assumptions discussed in the book are valid, to make certain statements about it that hold for all <span class="math inline">\(n\)</span>. In particular <span class="math display">\[ E(\hat{\beta}_0) = \beta_0 \ \ \text{and} \ \  E(\hat{\beta}_1) = \beta_1,\]</span> that is, <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span> are unbiased estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, the true parameters. If the sample is sufficiently large, by the central limit theorem the <em>joint</em> sampling distribution of the estimators is well approximated by the bivariate normal distribution (<a href="#mjx-eqn-2.1">2.1</a>). This implies that the marginal distributions are also normal in large samples. Core facts on the large-sample distributions of <span class="math inline">\(\hat\beta_0\)</span> and <span class="math inline">\(\hat\beta_1\)</span> are presented in Key Concept 17.</p>
 <div id="KC17" class="keyconcept">
 <h3 class="right">
@@ -1573,7 +1573,7 @@ Furthermore, the variance of the OLS estimator for <span class="math inline">\(\
       5 &amp; 4 \\
       4 &amp; 5 \\
     \end{pmatrix}
-  \right]. \tag{4.3}
+  \right].
 \end{align}\]</span> To carry out the random sampling, we make use of the function <tt>mvrnorm()</tt> from the package <tt>MASS</tt> <span class="citation">[@R-MASS]</span> which allows to draw random samples from multivariate normal distributions, see <code>?mvtnorm</code>. Next, we use <tt>subset()</tt> to split the sample into two subsets such that the first set, <tt>set1</tt>, consists of observations that fulfill the condition <span class="math inline">\(\lvert X - \overline{X} \rvert &gt; 1\)</span> and the second set, <tt>set2</tt>, includes the remainder of the sample. We then plot both sets and use different colors to distinguish the observations.
 <div class="unfolded">
 <pre class="r"><code># load the MASS package
@@ -1787,7 +1787,7 @@ plot(Y,
 <p><span class="math display">\[ SE(\hat\mu) = \frac{\sigma_{\epsilon}}{\sqrt{n}} = \frac{5}{\sqrt{100}} \]</span></p>
 <p>A large-sample <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span> is then given by</p>
 <p><span class="math display">\[\begin{equation} 
-CI^{\mu}_{0.95} = \left[\hat\mu - 1.96 \times \frac{5}{\sqrt{100}} \ , \ \hat\mu + 1.96 \times \frac{5}{\sqrt{100}}  \right]. (\#eq:KI)
+CI^{\mu}_{0.95} = \left[\hat\mu - 1.96 \times \frac{5}{\sqrt{100}} \ , \ \hat\mu + 1.96 \times \frac{5}{\sqrt{100}}  \right].
 \end{equation}\]</span></p>
 <p>It is fairly easy to compute this interval in <tt>R</tt> by hand. The following code chunk generates a named vector containing the interval bounds:</p>
 <pre class="r"><code>cbind(CIlower = mean(Y) - 1.96 * 5 / 10, CIupper = mean(Y) + 1.96 * 5 / 10)</code></pre>
@@ -1898,7 +1898,7 @@ plot(data$D, data$score,            # provide the data to be plotted
 <li><p><span class="math inline">\(E(Y_i | D_i = 0) = \beta_0\)</span>, so <span class="math inline">\(\beta_0\)</span> is the expected patient score in hospitals where <span class="math inline">\(D_i=0\)</span> where <span class="math inline">\(PDR\)</span> is below <span class="math inline">\(20\)</span>.</p></li>
 <li><p><span class="math inline">\(E(Y_i | D_i = 1) = \beta_0 + \beta_1\)</span> or, using the result above, <span class="math inline">\(\beta_1 = E(Y_i | D_i = 1) - E(Y_i | D_i = 0)\)</span>. Thus, <span class="math inline">\(\beta_1\)</span> is <em>the difference in group specific expectations</em>, i.e., the difference in expected patient score between hospitals with <span class="math inline">\(PDR &lt; 20\)</span> and those with <span class="math inline">\(PDR \geq 20\)</span>.</p></li>
 </ul>
-<p>We will now use <tt>R</tt> to estimate the dummy regression model as defined by the equations (<a href="#mjx-eqn-5.2">5.2</a>) and (<a href="#mjx-eqn-5.3">5.3</a>) .</p>
+<p>We will now use <tt>R</tt> to estimate the dummy regression model:</p>
 <div class="unfolded">
 <pre class="r"><code># estimate the dummy regression model
 dummy_model &lt;- lm(score ~ D, data = data)
