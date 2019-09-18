@@ -390,14 +390,7 @@ library(MASS)
 library(readxl)</code></pre>
 <p>We will then cover the basics of linear regression and show how to perform regression analysis in <tt>R</tt>. In linear regression, the aim is to model the relationship between a dependent variable <span class="math inline">\(Y\)</span> and one or more explanatory variables denoted by <span class="math inline">\(X_1, X_2, \dots, X_k\)</span>. In simple linear regression, that we will focus on first, there is just one explanatory variable <span class="math inline">\(X_1\)</span>. <br></p>
 <p>If, for example, if we have a single nucleotide genetic marker <span class="math inline">\(X_1\)</span>, we would like to know how changing the base-pair would affect <span class="math inline">\(Y\)</span>, the height of individuals? With linear regression we can not only examine whether the marker <em>does have</em> an impact on height, but we can also learn about the <em>direction</em> and the <em>strength</em> of this effect.</p>
-<p>The following packages are needed for reproducing the code presented later in the regression section of this tutorial:</p>
-<ul>
-<li><p><tt>AER</tt> - accompanies the Book <em>Applied Econometrics with R</em> <span class="citation">@kleiber2008</span> and provides useful functions and data sets.</p></li>
-<li><p><tt>MASS</tt> - a collection of functions for applied statistics.</p></li>
-</ul>
-<p>Make sure these are installed before you go ahead and try to replicate the examples. The safest way to do so is by checking whether the following code chunk executes without any errors.</p>
-<pre class="r"><code>library(AER)
-library(MASS)</code></pre>
+
 <div id="estimation-of-the-population-mean" class="section level2">
 <h2><span class="header-section-number">1.1</span> Estimation of the Population Mean</h2>
 <div id="KC8" class="keyconcept">
@@ -409,7 +402,7 @@ Estimators and Estimates
 </h3>
 <p><em>Estimators</em> are functions of sample data drawn from an unknown population. <em>Estimates</em> are numeric values computed by estimators based on the sample data. Estimators are random variables because they are functions of <em>random</em> data. Estimates are nonrandom numbers.</p>
 </div>
-<p>Think of some economic variable, for example hourly earnings of college graduates, denoted by <span class="math inline">\(Y\)</span>. Suppose we are interested in <span class="math inline">\(\mu_Y\)</span> the mean of <span class="math inline">\(Y\)</span>. In order to exactly calculate <span class="math inline">\(\mu_Y\)</span> we would have to interview every working graduate in the economy. We simply cannot do this due to time and cost constraints. However, we can draw a random sample of <span class="math inline">\(n\)</span> i.i.d. observations <span class="math inline">\(Y_1, \dots, Y_n\)</span> and estimate <span class="math inline">\(\mu_Y\)</span> using one of the simplest estimators in the sense of Key Concept 3.1 one can think of, that is,</p>
+<p>Think of some variable, denoted by <span class="math inline">\(Y\)</span>. Suppose we are interested in <span class="math inline">\(\mu_Y\)</span> the mean of <span class="math inline">\(Y\)</span>. In order to exactly calculate <span class="math inline">\(\mu_Y\)</span> we would have to interview every working graduate in the economy. We simply cannot do this due to time and cost constraints. However, we can draw a random sample of <span class="math inline">\(n\)</span> i.i.d. observations <span class="math inline">\(Y_1, \dots, Y_n\)</span> and estimate <span class="math inline">\(\mu_Y\)</span> using one of the simplest estimators in the sense of Key Concept 3.1 one can think of, that is,</p>
 <p><span class="math display">\[ \overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i, \]</span></p>
 <p>the sample mean of <span class="math inline">\(Y\)</span>. Then again, we could use an even simpler estimator for <span class="math inline">\(\mu_Y\)</span>: the very first observation in the sample, <span class="math inline">\(Y_1\)</span>. Is <span class="math inline">\(Y_1\)</span> a good estimator? For now, assume that</p>
 <p><span class="math display">\[ Y \sim \chi_{12}^2 \]</span></p>
