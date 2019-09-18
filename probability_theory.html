@@ -1073,7 +1073,7 @@ curve(dnorm(x, sd = 1/sqrt(n)),
 </div>
 <p>The sampling distribution of <span class="math inline">\(\overline{Y}\)</span> is indeed very close to that of a <span class="math inline">\(\mathcal{N}(0, 0.1)\)</span> distribution so the Monte Carlo Simulation supports the theoretical claim.</p>
 <p>Let us discuss another example where using simple random sampling in a simulation setup helps to verify a well known result. As discussed before, the <a href="#chisquare">Chi-squared</a> distribution with <span class="math inline">\(M\)</span> degrees of freedom arises as the distribution of the sum of <span class="math inline">\(M\)</span> independent squared standard normal distributed random variables.</p>
-<p>To visualize the claim stated in equation (<a href="#mjx-eqn-2.3">2.3</a>), we proceed similarly as in the example before:</p>
+<p>To visualize this, we proceed similarly as in the example before:</p>
 <ol style="list-style-type: decimal">
 <li>Choose the degrees of freedom, <tt>DF</tt>, and the number of samples to be drawn <tt>reps</tt>.</li>
 <li>Draw <tt>reps</tt> random samples of size <tt>DF</tt> from the standard normal distribution using <tt>replicate()</tt>.</li>
@@ -1133,7 +1133,7 @@ Law of Large Numbers
 <p>The procedure is as follows:</p>
 <ol style="list-style-type: decimal">
 <li>Sample <tt>N</tt> observations from the Bernoulli distribution, e.g., using <tt>sample()</tt>.</li>
-<li>Calculate the proportion of heads <span class="math inline">\(R_n\)</span> as in (<a href="#mjx-eqn-2.5">2.5</a>). A way to achieve this is to call <tt>cumsum()</tt> on the vector of observations <tt>Y</tt> to obtain its cumulative sum and then divide by the respective number of observations.</li>
+<li>Calculate the proportion of heads <span class="math inline">\(R_n\)</span>. A way to achieve this is to call <tt>cumsum()</tt> on the vector of observations <tt>Y</tt> to obtain its cumulative sum and then divide by the respective number of observations.</li>
 </ol>
 <p>We continue by plotting the path and also add a dashed line for the benchmark probability <span class="math inline">\(p = 0.5\)</span>.</p>
 <pre class="r"><code># set seed
