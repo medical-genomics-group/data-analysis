@@ -750,7 +750,7 @@ mean(mean_estimates)</code></pre>
 </div>
 <div id="calculating-the-p-value-when-the-standard-deviation-is-unknown" class="section level3 unnumbered">
 <h3>p-value with Unknown SD</h3>
-<p>When <span class="math inline">\(\sigma_Y\)</span> is unknown, the <span class="math inline">\(p\)</span>-value for a hypothesis test concerning <span class="math inline">\(\mu_Y\)</span> using <span class="math inline">\(\overline{Y}\)</span> can be computed by replacing <span class="math inline">\(\sigma_{\overline{Y}}\)</span> in @ref(eq:pvaluenorm1) by the standard error <span class="math inline">\(SE(\overline{Y}) = \hat\sigma_{\overline{Y}}\)</span>. Then,</p>
+<p>When <span class="math inline">\(\sigma_Y\)</span> is unknown, the <span class="math inline">\(p\)</span>-value for a hypothesis test concerning <span class="math inline">\(\mu_Y\)</span> using <span class="math inline">\(\overline{Y}\)</span> can be computed by replacing <span class="math inline">\(\sigma_{\overline{Y}}\)</span> by the standard error <span class="math inline">\(SE(\overline{Y}) = \hat\sigma_{\overline{Y}}\)</span>. Then,</p>
 <p><span class="math display">\[ p\text{-value} = 2\cdot\Phi\left(-\left\lvert \frac{\overline{Y}^{act}-\mu_{Y,0}}{SE(\overline{Y})} \right\rvert \right). \]</span></p>
 <p>This is easily done in <tt>R</tt>:</p>
 <pre class="r"><code># sample and estimate, compute standard error
@@ -976,7 +976,7 @@ t=\frac{(\overline{Y}_1 - \overline{Y}_2) - d_0}{SE(\overline{Y}_1 - \overline{Y
 <p><span class="math display">\[\begin{equation}
 SE(\overline{Y}_1 - \overline{Y}_2) = \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}.
 \end{equation}\]</span></p>
-<p>This is called a two sample <span class="math inline">\(t\)</span>-test. For large <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>, @ref(eq:tstatmeans) is standard normal under the null hypothesis. Analogously to the simple <span class="math inline">\(t\)</span>-test we can compute confidence intervals for the true difference in population means:</p>
+<p>This is called a two sample <span class="math inline">\(t\)</span>-test. For large <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span>, this is standard normal under the null hypothesis. Analogously to the simple <span class="math inline">\(t\)</span>-test we can compute confidence intervals for the true difference in population means:</p>
 <p><span class="math display">\[ (\overline{Y}_1 - \overline{Y}_2) \pm 1.96 \times SE(\overline{Y}_1 - \overline{Y}_2) \]</span></p>
 <p>is a <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(d\)</span>. <br> In <tt>R</tt>, hypotheses as in @ref(eq:hypmeans) can be tested with <tt>t.test()</tt>, too. Note that <tt>t.test()</tt> chooses <span class="math inline">\(d_0 = 0\)</span> by default. This can be changed by setting the argument <tt>mu</tt> accordingly.</p>
 <p>The subsequent code chunk demonstrates how to perform a two sample <span class="math inline">\(t\)</span>-test in <tt>R</tt> using simulated data.</p>
