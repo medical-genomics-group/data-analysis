@@ -1,2 +1,2 @@
 # data-analysis
-Course material for Data Analysis
+Course material for a very basic course in data analysis
